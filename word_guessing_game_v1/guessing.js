@@ -16,3 +16,10 @@ const startButton = document.getElementsByClassName('btn__reset')[0];
 startButton.addEventListener('click', (e) => {
   overlay.style.display = 'none';
 });
+
+const getRandomPhraseAsArray = (arr) => {
+  let randomArrayString = arr[Math.floor(Math.random() * arr.length)].split('');
+  return randomArrayString;
+};
+
+getRandomPhraseAsArray(phrases);
