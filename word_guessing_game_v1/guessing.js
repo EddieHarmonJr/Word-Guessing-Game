@@ -11,8 +11,6 @@ const phrases = [
   "AT THE END OF THE DAY"
 ];
 
-//const test = ["i","t","o","l","d","y","o","u","s","o"];
-
 const startButton = document.getElementsByClassName('btn__reset')[0];
 startButton.addEventListener('click', (e) => {
   overlay.style.display = 'none';
@@ -33,13 +31,36 @@ const addPhraseToDisplay = (arr) => {
     li.textContent = letter;
     phrase.appendChild(li);
 
-    if (arr[i]!== "") {
+    if (arr[i]!== " ") {
       li.className = 'letter';
     }
   }
-
 };
+
+
+const checkLetter = (button) => {
+  const allLetters = document.getElementsByClassName('letter');
+  let matchedLetter = null;
+  for (var i = 0; i < allLetters.length; i++) {
+    if (allLetters[i].textContent === button) {
+      allLetters[i].className += ' show';
+      //allLetters[i].classList.add('show'); (look into this)
+      matchedLetter = allLetters[i].textContent;
+    }
+  }
+  return matchedLetter;
+}
+
+
+qwerty.addEventListener('click', (event) => {
+  if(event.target.tagName === "BUTTON") {
+    const match = checkLetter(event.target.textContent.toUpperCase());
+    console.log(match);
+  } 
+})
+
 
 
 getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray);
+//checkLetter();
