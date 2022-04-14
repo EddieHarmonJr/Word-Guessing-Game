@@ -1,6 +1,6 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-const missed = 0;
+let missed = 0;
 const overlay = document.getElementById('overlay');
 
 const phrases = [
@@ -58,6 +58,11 @@ qwerty.addEventListener('click', (event) => {
     console.log(letterFound);
     event.target.className += ' chosen';
     event.target.disabled = true;
+
+    if (letterFound === null) {
+      missed += 1;
+      console.log(missed);
+    }
   } 
 })
 
