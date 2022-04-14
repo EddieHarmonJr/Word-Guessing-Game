@@ -57,6 +57,7 @@ qwerty.addEventListener('click', (event) => {
     const match = checkLetter(event.target.textContent.toUpperCase());
     console.log(match);
     event.target.className += ' chosen';
+    event.target.disabled = true;
   } 
 })
 
