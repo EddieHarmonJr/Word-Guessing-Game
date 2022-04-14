@@ -51,11 +51,12 @@ const checkLetter = (button) => {
   return matchedLetter;
 }
 
-
+//This adds an event listener to the keyboard
 qwerty.addEventListener('click', (event) => {
   if(event.target.tagName === "BUTTON") {
     const match = checkLetter(event.target.textContent.toUpperCase());
     console.log(match);
+    event.target.className += ' chosen';
   } 
 })
 
