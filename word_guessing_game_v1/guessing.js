@@ -75,13 +75,16 @@ const checkWin = () => {
   let shownLetters = document.getElementsByClassName('show').length;
 
     if (missed >= 5) {
+      overlay.className = 'lose';
+      //overlay.display = 'flex';
       console.log("YOU LOSE")
     }
 
 
   if (shownLetters === allLetters.length) {
     overlay.className = 'win';
-    overlay.style.display = 'show';
+    const title = document.querySelector('h2').textContent = 'YOU WIN!!!';
+    overlay.style.display = 'flex';
     //console.log(allLetters.length);
     //console.log('The number of letters in the phrase and the number of letters showing are the same.')
   }
