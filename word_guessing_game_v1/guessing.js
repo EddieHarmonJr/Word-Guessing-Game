@@ -64,7 +64,7 @@ qwerty.addEventListener('click', (event) => {
 
       missed += 1;
       console.log(missed);
-      hearts[0].src = "images/lostHeart.png";
+      hearts[missed - 1].src = "images/lostHeart.png";
     }
   } 
 })
