@@ -95,12 +95,19 @@ const resetGame = () => {
     hearts[i].src = "images/liveHeart.png";
   }
 
+  while (phrase.hasChildNodes()) {
+    phrase.removeChild(phrase.firstChild);
+  }
+
+  getRandomPhraseAsArray(phrases);
+  addPhraseToDisplay(phraseArray);
 
 
-  // const chosenKeys = document.getElementsByClassName(' chosen');
-  // for (let i = 0; i < chosenKeys.length; i++) {
-  //   chosenKeys[i].classList.remove('chosen');
-  // }
+  const chosenKeys = document.getElementsByClassName(' chosen');
+  for (let i = 0; i < chosenKeys.length; i++) {
+    chosenKeys[i].classList.remove('chosen');
+    chosenKeys[i].disabled = false;
+  }
 
 
   //console.log(chosenKeys);
