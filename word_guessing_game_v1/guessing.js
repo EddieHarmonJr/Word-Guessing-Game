@@ -2,6 +2,7 @@ const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 let missed = 0;
 const overlay = document.getElementById('overlay');
+const hearts = document.getElementsByTagName('img');
 
 const phrases = [
   "DID I DO THAT",
@@ -60,8 +61,10 @@ qwerty.addEventListener('click', (event) => {
     event.target.disabled = true;
 
     if (letterFound === null) {
+
       missed += 1;
       console.log(missed);
+      hearts[0].src = "images/lostHeart.png";
     }
   } 
 })
