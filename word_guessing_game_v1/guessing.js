@@ -3,6 +3,8 @@ const phrase = document.getElementById('phrase');
 let missed = 0;
 const overlay = document.getElementById('overlay');
 const hearts = document.getElementsByTagName('img');
+const allLetters = document.getElementsByClassName('letter');
+
 
 const phrases = [
   "DID I DO THAT",
@@ -40,7 +42,6 @@ const addPhraseToDisplay = (arr) => {
 
 
 const checkLetter = (button) => {
-  const allLetters = document.getElementsByClassName('letter');
   let matchedLetter = null;
   for (var i = 0; i < allLetters.length; i++) {
     if (allLetters[i].textContent === button) {
@@ -63,13 +64,36 @@ qwerty.addEventListener('click', (event) => {
     if (letterFound === null) {
 
       missed += 1;
-      console.log(missed);
+      //console.log(missed);
       hearts[missed - 1].src = "images/lostHeart.png";
     }
   } 
+  checkWin();
 })
 
+const checkWin = () => {
+  let shownLetters = document.getElementsByClassName('show').length;
 
+    if (missed >= 5) {
+      console.log("YOU LOSE")
+    }
+
+
+  if (shownLetters === allLetters.length) {
+    overlay.className = 'win';
+    overlay.style.display = 'show';
+    //console.log(allLetters.length);
+    //console.log('The number of letters in the phrase and the number of letters showing are the same.')
+  }
+
+
+
+
+
+  //console.log(`This is the number of letters with the class show: `);
+}
+
+//checkWin();
 
 getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray);
