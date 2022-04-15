@@ -4,6 +4,8 @@ let missed = 0;
 const overlay = document.getElementById('overlay');
 const hearts = document.getElementsByTagName('img');
 const allLetters = document.getElementsByClassName('letter');
+const title = document.querySelector('h2');
+
 
 
 const phrases = [
@@ -83,7 +85,7 @@ const checkWin = () => {
 
   if (shownLetters === allLetters.length) {
     overlay.className = 'win';
-    const title = document.querySelector('h2').textContent = 'YOU WIN!!!';
+    title.textContent = 'YOU WIN!!!';
     overlay.style.display = 'flex';
     //console.log(allLetters.length);
     //console.log('The number of letters in the phrase and the number of letters showing are the same.')
