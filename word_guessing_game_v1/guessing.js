@@ -5,6 +5,7 @@ const overlay = document.getElementById('overlay');
 const hearts = document.getElementsByTagName('img');
 const allLetters = document.getElementsByClassName('letter');
 const title = document.querySelector('h2');
+const startButton = document.getElementsByClassName('btn__reset')[0];
 
 
 
@@ -16,7 +17,6 @@ const phrases = [
   "AT THE END OF THE DAY"
 ];
 
-const startButton = document.getElementsByClassName('btn__reset')[0];
 startButton.addEventListener('click', (e) => {
   overlay.style.display = 'none';
 });
@@ -90,12 +90,11 @@ const checkWin = () => {
     //console.log(allLetters.length);
     //console.log('The number of letters in the phrase and the number of letters showing are the same.')
   }
+}
 
 
+const resetGame = () => {
 
-
-
-  //console.log(`This is the number of letters with the class show: `);
 }
 
 //checkWin();
