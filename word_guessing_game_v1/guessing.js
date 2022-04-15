@@ -89,6 +89,19 @@ const checkWin = () => {
 
 const resetGame = () => {
   startButton.textContent = 'Play Again';
+  // const chosenKeys = document.getElementsByClassName(' chosen');
+  // for (let i = 0; i < chosenKeys.length; i++) {
+  //   chosenKeys[i].className -= ' chosen';
+  //   chosenKeys[i].disabled = false;
+  // }
+
+  //console.log(chosenKeys);
+
+  for (let i = 0; i < allLetters.length; i++) {
+    allLetters[i].classList.remove('show');
+  }
+
+  //addPhraseToDisplay(phraseArray);
 }
 
 getRandomPhraseAsArray(phrases);
