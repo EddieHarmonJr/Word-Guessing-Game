@@ -28,7 +28,7 @@ const getRandomPhraseAsArray = (arr) => {
 const phraseArray = getRandomPhraseAsArray(phrases);
 
 const addPhraseToDisplay = (arr) => {
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     const li = document.createElement('li');
     const letter = arr[i];
     li.textContent = letter;
@@ -42,7 +42,7 @@ const addPhraseToDisplay = (arr) => {
 
 const checkLetter = (button) => {
   let matchedLetter = null;
-  for (var i = 0; i < allLetters.length; i++) {
+  for (let i = 0; i < allLetters.length; i++) {
     if (allLetters[i].textContent === button) {
       allLetters[i].className += ' show';
       //allLetters[i].classList.add('show'); (look into this)
