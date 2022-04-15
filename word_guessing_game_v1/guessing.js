@@ -17,6 +17,7 @@ const phrases = [
 ];
 
 startButton.addEventListener('click', (e) => {
+  resetGame();
   overlay.style.display = 'none';
 });
 
@@ -24,8 +25,6 @@ const getRandomPhraseAsArray = (arr) => {
   let randomSplitArray = arr[Math.floor(Math.random() * arr.length)].split('');
   return randomSplitArray;
 };
-
-const phraseArray = getRandomPhraseAsArray(phrases);
 
 const addPhraseToDisplay = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -93,28 +92,18 @@ const resetGame = () => {
   startButton.textContent = 'Play Again';
   missed = 0;
 
+  phrase.innerHTML = '';
+
   for (let i = 0; i < hearts.length; i++) {
     hearts[i].src = "images/liveHeart.png";
   }
 
-  while (phrase.hasChildNodes()) {
-    phrase.removeChild(phrase.firstChild);
-  }
-
-  addPhraseToDisplay(phraseArray);
-  getRandomPhraseAsArray(phrases);
-
-
   const chosenKeys = document.querySelectorAll('#qwerty button');
   for (let i = 0; i < chosenKeys.length; i++) {
-    chosenKeys[i].className = '';
+    chosenKeys[i].classList.remove('chosen');
     chosenKeys[i].disabled = false;
   }
 
-  for (let i = 0; i < allLetters.length; i++) {
-    allLetters[i].classList.remove('show');
-  }
+  const phraseArray = getRandomPhraseAsArray(phrases);
+  addPhraseToDisplay(phraseArray);
 }
-
-getRandomPhraseAsArray(phrases);
-addPhraseToDisplay(phraseArray);
