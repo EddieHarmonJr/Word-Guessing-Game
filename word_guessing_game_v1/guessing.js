@@ -78,8 +78,8 @@ const checkWin = () => {
 
     if (missed >= 5) {
       overlay.className = 'lose';
-      //overlay.display = 'flex';
-      console.log("YOU LOSE")
+      overlay.style.display = 'flex';
+      title.textContent = 'SORRY. YOU DID NOT WIN THIS TIME.';
     }
 
 
