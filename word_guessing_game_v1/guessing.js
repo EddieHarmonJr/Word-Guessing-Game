@@ -99,8 +99,8 @@ const resetGame = () => {
     phrase.removeChild(phrase.firstChild);
   }
 
-  getRandomPhraseAsArray(phrases);
   addPhraseToDisplay(phraseArray);
+  getRandomPhraseAsArray(phrases);
 
 
   const chosenKeys = document.getElementsByClassName(' chosen');
@@ -109,14 +109,9 @@ const resetGame = () => {
     chosenKeys[i].disabled = false;
   }
 
-
-  //console.log(chosenKeys);
-
   for (let i = 0; i < allLetters.length; i++) {
     allLetters[i].classList.remove('show');
   }
-
-  //addPhraseToDisplay(phraseArray);
 }
 
 getRandomPhraseAsArray(phrases);
