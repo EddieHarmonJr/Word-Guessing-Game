@@ -8,7 +8,6 @@ const title = document.querySelector('h2');
 const startButton = document.getElementsByClassName('btn__reset')[0];
 
 
-
 const phrases = [
   "DID I DO THAT",
   "HASTA LA VISTA BABY",
@@ -20,7 +19,6 @@ const phrases = [
 startButton.addEventListener('click', (e) => {
   overlay.style.display = 'none';
 });
-
 
 const getRandomPhraseAsArray = (arr) => {
   let randomSplitArray = arr[Math.floor(Math.random() * arr.length)].split('');
@@ -36,12 +34,11 @@ const addPhraseToDisplay = (arr) => {
     li.textContent = letter;
     phrase.appendChild(li);
 
-    if (arr[i]!== " ") {
+    if (arr[i] !== " ") {
       li.className = 'letter';
     }
   }
 };
-
 
 const checkLetter = (button) => {
   let matchedLetter = null;
@@ -55,9 +52,8 @@ const checkLetter = (button) => {
   return matchedLetter;
 }
 
-//This adds an event listener to the keyboard
 qwerty.addEventListener('click', (event) => {
-  if(event.target.tagName === "BUTTON") {
+  if (event.target.tagName === "BUTTON") {
     const letterFound = checkLetter(event.target.textContent.toUpperCase());
     console.log(letterFound);
     event.target.className += ' chosen';
@@ -66,29 +62,25 @@ qwerty.addEventListener('click', (event) => {
     if (letterFound === null) {
 
       missed += 1;
-      //console.log(missed);
       hearts[missed - 1].src = "images/lostHeart.png";
     }
-  } 
+  }
   checkWin();
 })
 
 const checkWin = () => {
   let shownLetters = document.getElementsByClassName('show').length;
 
-    if (missed >= 5) {
-      overlay.className = 'lose';
-      overlay.style.display = 'flex';
-      title.textContent = 'SORRY. YOU DID NOT WIN THIS TIME.';
-    }
-
+  if (missed >= 5) {
+    overlay.className = 'lose';
+    overlay.style.display = 'flex';
+    title.textContent = 'SORRY. YOU DID NOT WIN THIS TIME.';
+  }
 
   if (shownLetters === allLetters.length) {
     overlay.className = 'win';
     title.textContent = 'YOU WIN!!!';
     overlay.style.display = 'flex';
-    //console.log(allLetters.length);
-    //console.log('The number of letters in the phrase and the number of letters showing are the same.')
   }
 }
 
@@ -97,8 +89,5 @@ const resetGame = () => {
 
 }
 
-//checkWin();
-
 getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray);
-//checkLetter();
