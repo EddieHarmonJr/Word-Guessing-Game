@@ -105,9 +105,9 @@ const resetGame = () => {
   getRandomPhraseAsArray(phrases);
 
 
-  const chosenKeys = document.getElementsByClassName(' chosen');
+  const chosenKeys = document.querySelectorAll('#qwerty button');
   for (let i = 0; i < chosenKeys.length; i++) {
-    chosenKeys[i].classList.remove('chosen');
+    chosenKeys[i].className = '';
     chosenKeys[i].disabled = false;
   }
 
