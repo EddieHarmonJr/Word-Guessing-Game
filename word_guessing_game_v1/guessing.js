@@ -71,18 +71,26 @@ qwerty.addEventListener('click', (event) => {
 const checkWin = () => {
   let shownLetters = document.getElementsByClassName('show').length;
 
-  if (missed >= 5) {
+  const pause = () => {
     overlay.className = 'lose';
     overlay.style.display = 'flex';
     title.textContent = 'SORRY. YOU DID NOT WIN THIS TIME.';
     resetGame();
   }
 
-  if (shownLetters === allLetters.length) {
+  if (missed >= 5) {
+    setTimeout(pause, 2500);
+  }
+
+  const pause2 = () => {
     overlay.className = 'win';
     title.textContent = 'YOU WIN!!!';
     overlay.style.display = 'flex';
     resetGame();
+  }
+
+  if (shownLetters === allLetters.length) {
+    setTimeout(pause2, 2500)
   }
 }
 
