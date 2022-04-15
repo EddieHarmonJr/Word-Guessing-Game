@@ -75,18 +75,20 @@ const checkWin = () => {
     overlay.className = 'lose';
     overlay.style.display = 'flex';
     title.textContent = 'SORRY. YOU DID NOT WIN THIS TIME.';
+    resetGame();
   }
 
   if (shownLetters === allLetters.length) {
     overlay.className = 'win';
     title.textContent = 'YOU WIN!!!';
     overlay.style.display = 'flex';
+    resetGame();
   }
 }
 
 
 const resetGame = () => {
-
+  startButton.textContent = 'Play Again';
 }
 
 getRandomPhraseAsArray(phrases);
