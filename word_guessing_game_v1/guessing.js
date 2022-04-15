@@ -56,7 +56,6 @@ const checkLetter = (button) => {
 qwerty.addEventListener('click', (event) => {
   if (event.target.tagName === "BUTTON") {
     const letterFound = checkLetter(event.target.textContent.toUpperCase());
-    console.log(letterFound);
     event.target.className += ' chosen';
     event.target.disabled = true;
 
