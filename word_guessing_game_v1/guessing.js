@@ -89,11 +89,19 @@ const checkWin = () => {
 
 const resetGame = () => {
   startButton.textContent = 'Play Again';
+  missed = 0;
+
+  for (let i = 0; i < hearts.length; i++) {
+    hearts[i].src = "images/liveHeart.png";
+  }
+
+
+
   // const chosenKeys = document.getElementsByClassName(' chosen');
   // for (let i = 0; i < chosenKeys.length; i++) {
-  //   chosenKeys[i].className -= ' chosen';
-  //   chosenKeys[i].disabled = false;
+  //   chosenKeys[i].classList.remove('chosen');
   // }
+
 
   //console.log(chosenKeys);
 
