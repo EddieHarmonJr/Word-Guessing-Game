@@ -36,6 +36,8 @@ const addPhraseToDisplay = (arr) => {
 
     if (arr[i] !== " ") {
       li.className = 'letter';
+    } else {
+      li.className = 'space';
     }
   }
 };
